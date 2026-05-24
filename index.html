@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Nutrizione Evidence Based</title>
-    <style>
-        body { background: url('salute-sport.jpg') no-repeat center center fixed; background-size: cover; color: white; font-family: sans-serif; text-align: center; padding-top: 20%; }
-        .container { background: rgba(0,0,0,0.6); padding: 40px; border-radius: 15px; display: inline-block; }
-    </style>
+  <title>Nutrizione Evidence Based</title>
+  <script 
+    async 
+    crossorigin="anonymous" 
+    src="https://img.clerk.com/static/clerk.js"
+    data-clerk-publishable-key="pk_test_b25lLXNlYXNuYWlsLTk0LmNsZXJrLmFjY291bnRzLmRldiQ"
+  ></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Nutrizione Evidence Based</h1>
-        <p>Il miglior approccio scientifico per i tuoi obiettivi.</p>
-        <button onclick="window.location.href='pagamento.html'">Accedi al Servizio (15 CHF/mese)</button>
-    </div>
+  <div id="clerk-sign-in"></div>
+
+  <script>
+    window.addEventListener('load', async () => {
+      await Clerk.load();
+      if (Clerk.user) {
+        document.body.innerHTML = "<h1>Benvenuto nel tuo piano nutrizionale!</h1>";
+      } else {
+        Clerk.mountSignIn(document.getElementById('clerk-sign-in'));
+      }
+    });
+  </script>
 </body>
 </html>
